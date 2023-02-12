@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="row">
+        <view class="item" wx:key="id" wx:for="{{list}}" bindtap="priviewImg" data-img="{{item.img_key}}">
+            <t-image src="{{ imgHttps + item.img_key }}" mode="aspectFill" class="item" width="72" height="72" />
+        </view>
+    </view>
+</view>

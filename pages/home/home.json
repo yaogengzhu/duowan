@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "t-image": "tdesign-miniprogram/image/image",
+        "tabbar": "../../components/tabbar/tabbar"
+    },
+    "navigationBarTitleText": "多玩表情"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "duowan",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "author": "yaogengzhu",
+    "license": "ISC",
+    "dependencies": {
+        "tdesign-miniprogram": "^1.0.0-rc.1"
+    }
+}
