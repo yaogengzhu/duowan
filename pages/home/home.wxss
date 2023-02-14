@@ -1,16 +1,55 @@
-.container {
+
+.header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 100%;
+    height: 100rpx;
+    overflow-x: scroll;
 }
 
+.row-item {
+    flex-shrink: 0;
+    padding: 6rpx;
+    font-size: 24rpx;
+    background-color: #ccc;
+    color: #333;
+    margin-left: 12rpx;
+    border-radius: 8rpx;
+}
+
+.active {
+    background-color: green;
+    color: #fff;
+}
+
+.content {
+    margin-top: 100rpx;
+}
 .row {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    padding: 0 20rpx;
+    box-sizing: border-box;
 }
 
 .item {
-    width: 25%;
-    height: 200rpx
+    width: 24%;
+    height: 200rpx;
+    border-radius: 8rpx;
+    overflow: hidden;
+}
+
+.item:not(:nth-child(4n)) {
+    margin-right: calc(4% / 3);
+}
+
+.no-has-more {
+    padding-bottom: 20rpx;
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
 }

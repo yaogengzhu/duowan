@@ -1,7 +1,19 @@
 <view class="container">
-    <view class="row">
-        <view class="item" wx:key="id" wx:for="{{list}}" bindtap="priviewImg" data-img="{{item.img_key}}">
-            <t-image src="{{ imgHttps + item.img_key }}" mode="aspectFill" class="item" width="72" height="72" />
+    <view class="header">
+        <view
+            class="row-item {{ category_id === item.id ? 'active' : ''}}"
+            wx:key="id"
+            wx:for="{{ categoryList }}"
+            bindtap="chooseCategory" 
+            data-id="{{item.id}}"
+        >{{ item.category_name}}</view>
+    </view>
+    <view class="content">
+        <view class="row">
+            <view class="item" wx:key="id" wx:for="{{list}}" bindtap="priviewImg" data-img="{{item.img_key}}">
+                <t-image src="{{ imgHttps + item.img_key }}" mode="aspectFill" class="item" width="72" height="72" />
+            </view>
         </view>
+        <view wx:if="{{!hasMore}}" class="no-has-more">没有更多</view>
     </view>
 </view>

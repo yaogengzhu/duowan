@@ -11,17 +11,37 @@ Page({
     data: {
         list: [],
         imgHttps: app.globalData.imgHttps,
+        pageSize: 40,
+        pageNo: 1,
+        hasMore: true,
+        category_id: '',
+        categoryList: [],
     },
 
     getImageList() {
+        const { pageSize, pageNo, list, category_id } = this.data;
         request({
-            url: '/get_image_list?category_id=30',
+            url: `/get_image_list?pageSize=${pageSize}&pageNo=${pageNo}&category_id=${category_id}`,
         }).then((res) => {
             const {
-                data
+                data,
+                hasMore
             } = res;
+            console.log(hasMore, '')
             this.setData({
-                list: data
+                list: pageNo === 1 ? data : list.concat(data),
+                hasMore,
+            })
+        })
+    },
+
+    getImageCategoryList() {
+        request({
+            url: `/get_category_list`,
+        }).then((res) => {
+            const { data } = res;
+            this.setData({
+                categoryList: [{id: '', category_name: '全部'}].concat(data),
             })
         })
     },
@@ -38,11 +58,24 @@ Page({
             urls // 需要预览的图片 http 链接列表
         })
     },
+
+    chooseCategory(e) {
+        const { currentTarget } = e;
+        const { dataset } = currentTarget;
+        this.setData({
+            category_id: dataset.id,
+            pageNo: 1,
+            list: [],
+        }, () => {
+            this.getImageList()
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
         this.getImageList()
+        this.getImageCategoryList()
     },
 
     /**
@@ -77,14 +110,21 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh() {
-
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-        console.log('22')
+        const { hasMore, pageNo } = this.data;
+
+        console.log(hasMore, 'xxx')
+        if (!hasMore) return
+        this.setData({
+            pageNo: pageNo + 1,
+        }, () => {
+            this.getImageList()
+        })
     },
 
     /**
