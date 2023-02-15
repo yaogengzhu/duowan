@@ -16,10 +16,14 @@ Page({
         hasMore: true,
         category_id: '',
         categoryList: [],
+        loading: false,
     },
 
     getImageList() {
         const { pageSize, pageNo, list, category_id } = this.data;
+        this.setData({
+            loading: true
+        })
         request({
             url: `/get_image_list?pageSize=${pageSize}&pageNo=${pageNo}&category_id=${category_id}`,
         }).then((res) => {
@@ -31,6 +35,7 @@ Page({
             this.setData({
                 list: pageNo === 1 ? data : list.concat(data),
                 hasMore,
+                loading: false
             })
         })
     },
@@ -70,10 +75,23 @@ Page({
             this.getImageList()
         })
     },
+    onShareAppMessage (res) {
+        return {
+          title: '多玩表情',
+          path: '/pages/home/home',
+        }
+    },
+    shareTopage() {
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        });
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        this.shareTopage()
         this.getImageList()
         this.getImageCategoryList()
     },
