@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/chatgpt/chatgpt",
         "pages/home/home",
         "pages/user/user"
     ],
@@ -11,7 +12,8 @@
     },
     "sitemapLocation": "sitemap.json",
     "usingComponents": {
-        "t-fab": "tdesign-miniprogram/fab/fab"
+        "t-fab": "tdesign-miniprogram/fab/fab",
+        "t-toast": "tdesign-miniprogram/toast/toast"
     },
     "lazyCodeLoading": "requiredComponents"
 }

@@ -1,0 +1,101 @@
+page {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.chatgpt {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.content {
+    flex: 1;
+    padding: 32rpx;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+
+.msg-box {
+    position: relative;
+    margin-bottom: 20rpx;
+    width: 100%;
+    padding: 24rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+}
+.ipt {
+    width: 100%;
+    height: 80rpx;
+    font-size: 24rpx;
+    padding-left: 20rpx;
+    padding-right: 80rpx;
+    border-radius: 10rpx;
+    border: 1px solid #0052d9;
+    box-sizing: border-box;
+}
+
+.send-btn {
+    right: 40rpx;
+    bottom: 40rpx;
+    position: absolute;
+}
+
+.bot {
+    display: flex;
+    justify-content: space-between;
+}
+.left {
+    margin-bottom: 20rpx;
+    max-width: 80%;
+    background-color: #eee;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    font-size: 28rpx;
+}
+
+.custom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-left {
+    box-sizing: border-box;
+    width: 20%;
+}
+
+.right {
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+    align-self: flex-end;
+    max-width: 80%;
+    background-color: #0052d9;
+    color: #fff;
+    padding: 20rpx;
+    border-radius: 20rpx;
+    font-size: 28rpx;
+}
+
+.msg-box {
+    box-sizing: border-box;
+}
+
+.t-fab {
+    position: fixed;
+    bottom: 200rpx;
+    right: 20rpx;
+}
+
+.t-fab1 {
+    position: fixed;
+    bottom: 340rpx;
+    z-index: 999;
+    right: 20rpx;
+    width: 96rpx;
+    height: 96rpx;
+}

@@ -1,0 +1,33 @@
+<view class="chatgpt">
+    <view class="content">
+        <view wx:for="{{chatList}}" wx:key="key">
+            <!-- 机器人 -->
+            <view class="bot" wx:if="{{item.type === 0}}">
+                <view class="left">{{item.msg}}</view>
+                <view></view>
+            </view>
+            <!-- 自己 -->
+            <view class="custom" wx:if="{{item.type === 1}}">
+                <view class="c-left"></view>
+                <view class="right">{{item.msg}}</view>
+            </view>
+        </view>
+        <view class="bot" wx:if="{{loading}}">
+            <view class="left">
+                <t-loading theme="dots" />
+            </view>
+        </view>
+    </view>
+    <view class="msg-box">
+        <input value="{{inputValue}}" class="ipt" placeholder="说点啥..." bindinput="bindKeyInput" />
+        <view class="send-btn" bindtap="sumbmit">
+            <t-icon name="enter" size="48rpx" />
+        </view>
+    </view>
+    <view class="t-fab1">
+        <t-button bind:tap="jumpPage" theme="primary" size="large" shape="circle">表情</t-button>
+    </view>
+    <view class="t-fab">
+        <t-fab icon="share" button-props="{{ {openType: 'share'} }}"  />
+    </view>
+</view>

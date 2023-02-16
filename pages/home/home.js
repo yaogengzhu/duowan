@@ -31,7 +31,6 @@ Page({
                 data,
                 hasMore
             } = res;
-            console.log(hasMore, '')
             this.setData({
                 list: pageNo === 1 ? data : list.concat(data),
                 hasMore,
@@ -81,17 +80,10 @@ Page({
           path: '/pages/home/home',
         }
     },
-    shareTopage() {
-        wx.showShareMenu({
-            withShareTicket: true,
-            menus: ['shareAppMessage', 'shareTimeline']
-        });
-    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.shareTopage()
         this.getImageList()
         this.getImageCategoryList()
     },
@@ -135,8 +127,6 @@ Page({
      */
     onReachBottom() {
         const { hasMore, pageNo } = this.data;
-
-        console.log(hasMore, 'xxx')
         if (!hasMore) return
         this.setData({
             pageNo: pageNo + 1,
