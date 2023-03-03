@@ -11,7 +11,7 @@
     <view class="content">
         <view class="row">
             <view class="item" wx:key="id" wx:for="{{list}}" bindtap="priviewImg" data-img="{{item.img_key}}">
-                <t-image src="{{ imgHttps + item.img_key }}" mode="aspectFill" class="item" width="72" height="72" />
+                <t-image show-menu-by-longpress src="{{ imgHttps + item.img_key }}" mode="aspectFill" class="item" width="72" height="72" />
             </view>
         </view>
         <view wx:if="{{!hasMore && !loading}}" class="no-has-more">没有更多</view>
